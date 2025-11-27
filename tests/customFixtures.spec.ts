@@ -1,6 +1,6 @@
 import { test as base, expect } from "@playwright/test";
 
-const test = base.extend({
+const test = base.extend<{ testData: { name: string; email: string; password: string } }>({
   testData: async ({}, use) => {
     const data = {
       name: "John Doe",
