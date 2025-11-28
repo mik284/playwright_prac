@@ -1,5 +1,12 @@
 import { Locator, Page } from "@playwright/test";
 
+/**
+ * 1. Identify Key Elements: The key elements on the login page include email, password, and sign-in button.
+ * 2. Create Locators: Use Playwright's Locator and Page to create locators for these elements.
+ * 3. Initialize Locators: Initialize these locators in a class constructor, making them public for easy access in future tests.
+ * 4. Separate Structure from Logic: The page object model separates the structure of the test from the test logic, making tests more maintainable and flexible.
+ */
+
 export class LoginPage {
   public readonly emailLocator: Locator;
   public readonly passwordLocator: Locator;
