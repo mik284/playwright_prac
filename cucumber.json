@@ -1,8 +1,9 @@
 {
     "default": {
         "require": ["tests/BDD/steps/**/*.ts"],
-        "paths": ["features/**/*.feature"],
         "requireModule": ["ts-node/register"],
+        "paths": ["features/**/*.feature"],
+        "format": ["html:cucumber-report.html", "progress"],
         "formatOptions": {
             "snippetInterface": "synchronous"
         }
