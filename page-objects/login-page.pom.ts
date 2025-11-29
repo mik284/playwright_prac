@@ -20,6 +20,11 @@ export class LoginPage {
     this.signInButtonLocator = page.getByRole("button", { name: "Sign in" });
   }
 
+  // Implement the goTo reusable method
+  async goTo() {
+    await this.page.goto("https://binaryville.com/account/");
+  }
+
   //   Implement the login reusable method
   async login(email: string, password: string) {
     await this.emailLocator.fill(email);
@@ -28,8 +33,4 @@ export class LoginPage {
     await this.signInButtonLocator.click();
   }
 
-  // Implement the goTo reusable method
-  async goTo() {
-    await this.page.goto("https://binaryville.com/account/");
-  }
 }
