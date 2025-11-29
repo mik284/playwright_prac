@@ -17,4 +17,12 @@ export class LoginPage {
     this.passwordLocator = page.getByRole("textbox", { name: "Password" });
     this.signInButtonLocator = page.getByRole("button", { name: "Sign in" });
   }
+
+//   Implement the login reusable method
+  async login(email: string, password: string) {
+    await this.emailLocator.fill(email);
+    await this.passwordLocator.fill(password);
+    
+    await this.signInButtonLocator.click();
+  }
 }

@@ -21,10 +21,7 @@ test('Should login using POM', async ({ loginPage, page }) => {
    
     await page.goto('http://binaryville.com/account');
 
-    await loginPage.emailLocator.fill('john.doe@example.com');
-    await loginPage.passwordLocator.fill('password123');
-
-    await loginPage.signInButtonLocator.click();
-
+    await loginPage.login('john.doe@example.com', 'password123');
+   
     expect(page.url()).toContain('password123');
 })
