@@ -1,0 +1,10 @@
+{
+    "default": {
+        "require": ["tests/BDD/steps/**/*.ts"],
+        "paths": ["features/**/*.feature"],
+        "requireModule": ["ts-node/register"],
+        "formatOptions": {
+            "snippetInterface": "synchronous"
+        }
+    }
+}
