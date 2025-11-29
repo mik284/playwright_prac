@@ -1,6 +1,8 @@
 import { expect } from "@playwright/test";
 import { Given, When, Then } from "@cucumber/cucumber";
 import { page } from "../browserSetups";
+import { LoginPage } from "../../../page-objects/login-page.pom";
+
 
 /**
  * Implement the Login Page form using BDD, which helps separate page interactions from test logic.
@@ -9,19 +11,19 @@ import { page } from "../browserSetups";
  * 3. Benefits: Using BDD makes the test easier to maintain and scale, as it separates page interactions from the test logic.
  */
 
+let loginPage: LoginPage;
+
 Given("the user is on the login page", async () => {
-  await page.goto("https://binaryville.com/account/");
+  loginPage = new LoginPage(page);
+  await loginPage.goTo();
 });
 
 When("the user enters a valid email and password", async () => {
-  await page
-    .getByRole("textbox", { name: "Email" })
-    .fill("john.doe@example.com");
-  await page.getByRole("textbox", { name: "Password" }).fill("password123");
+  await loginPage.login("john.doe@example.com", "password123");
 });
 
 Then("the user should see their email and password in the URL", async () => {
-  await page.getByRole("button", { name: "Sign In" }).click();
+  await loginPage.signInButtonLocator.click();
   await expect(page).toHaveURL(/john.doe%40example.com/);
   await expect(page).toHaveURL(/password123/);
 });
