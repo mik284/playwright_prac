@@ -1,5 +1,15 @@
 {
   "compilerOptions": {
-    "module": "commonjs"
-  }
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "test-results",
+    "baseUrl": ".",
+    "strict": true,
+    "types": ["node", "@cucumber/cucumber"]
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
 }
